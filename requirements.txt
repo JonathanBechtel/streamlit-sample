@@ -1,0 +1,8 @@
+plotly
+pandas
+numpy
+flask
+sqlalchemy
+requests
+scikit-learn
+category_encoders
