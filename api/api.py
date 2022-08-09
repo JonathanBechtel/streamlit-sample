@@ -18,6 +18,10 @@ pipe = load_model()
 
 @app.route('/predict', methods = ['POST'])
 def predict():
+<<<<<<< HEAD
+=======
+    print("Here")
+>>>>>>> e3d3d58 (updated requirements.txt)
     data    = request.json
     samples = pd.DataFrame(json.loads(data['arr']))
     samples.columns = ['Ticker', 'monthRet', 'annRet', 'qRet', 'monthRetMkt', 
