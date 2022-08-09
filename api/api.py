@@ -16,6 +16,10 @@ def load_model():
 
 pipe = load_model()
 
+@app.route('/', methods = ['GET'])
+def view():
+    return 'Hello World!'
+
 @app.route('/predict', methods = ['POST'])
 def predict():
     data    = request.json
