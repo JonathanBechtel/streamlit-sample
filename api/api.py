@@ -28,3 +28,6 @@ def predict():
                        'qRetMkt', 'annRetMkt','regime']
     preds   = pipe.predict(samples)
     return json.dumps(preds.tolist())
+
+if __name__ == '__main__':
+    app.run(host = 0.0.0.0, port = 80)
