@@ -102,6 +102,9 @@ if section == 'Model Explorer':
     ticker = st.sidebar.selectbox("Select Ticker", ['All', 'MSFT', 'GOOG', 'FB', 'AAPL', 'AMZN'])
     start  = st.sidebar.date_input("Start Date", date(2010, 1, 1))
     end    = st.sidebar.date_input("End Date", date.today())
+
+    """
+    STEP 1:  Uncomment the following block to see what shows up in the streamlit app
     data           = load_data(ticker, start, end)
     chart          = chart_predictions(ticker, data)
     results_table  = format_table(data) 
@@ -109,9 +112,12 @@ if section == 'Model Explorer':
     st.plotly_chart(chart)
     st.text("Model Results")
     st.write(results_table)
+    """
     
 elif section == 'Live Model':
     file = st.file_uploader('Upload File With Model Predictions Here')
+
+    """STEP 2: UNCOMMENT THE FOLLOWING BLOCK TO SEE HOW APP CHANGES
     if file is not None:
         st.text("Uploaded File Contents")
         inputs = pd.read_csv(file)
@@ -126,9 +132,12 @@ elif section == 'Live Model':
                 st.write(np.array(resp.json()))
             except Exception as e:
                 st.text(f"Could not process request because: {e}")
+    """
                 
 else:
     st.header("Connect to the Model API")
+
+    """STEP 3:  UNCOMMENT THE FOLLOWING BLOCK TO SEE WHAT HAPPENS
     st.text("You can connect to the model API at the following URL:")
     st.code("http://ec2-44-200-166-44.compute-1.amazonaws.com:5000/predict")
     st.text("Example code you can use can be seen here: ")
@@ -138,5 +147,5 @@ else:
     json_sample = json.dumps(sample)
     payload     = {'arr': json_sample}
     resp        = requests.post(url, json = payload)
-    """
     st.code(code, language = "python")
+    """
